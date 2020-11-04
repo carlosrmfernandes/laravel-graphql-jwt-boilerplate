@@ -162,7 +162,7 @@ return [
         Illuminate\Notifications\NotificationServiceProvider::class,
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
-        Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,        
+        Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -178,7 +178,7 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,  
+        App\Providers\RouteServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class
         \App\Providers\HgWeatherServiceProvider::class,
 

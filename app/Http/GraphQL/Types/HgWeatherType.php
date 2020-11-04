@@ -40,5 +40,4 @@ class HgWeatherType extends GraphQLType
             
         ];
     }
-
 }

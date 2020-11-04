@@ -7,7 +7,7 @@ use GraphQL\Type\Definition\Type;
 use App\Http\GraphQL\Queries\BaseQuery;
 use GraphQL\Type\Definition\ResolveInfo;
 use Rebing\GraphQL\Support\Facades\GraphQL;
-
+use App\Components\Weather\Client;
 class WeatherInfosQuery extends BaseQuery
 {
 
@@ -52,8 +52,6 @@ class WeatherInfosQuery extends BaseQuery
      */
     public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields):Object
     {
-        return app('App\Components\Weather\Contracts\HgWeatherInterface')
-                        ->weatherMessage($args['woeid']);
+        return app(Client::class)->weatherMessage($args['woeid']);        
     }
-
 }

@@ -19,6 +19,7 @@ use App\Http\GraphQL\Queries\Weather\WeatherInfosQuery;
 use App\Http\GraphQL\Types\HgWeatherType;
 use App\Http\GraphQL\Types\HgWeatherResultsType;
 use App\Http\GraphQL\Types\HgWeatherForecastType;
+
 return [
     // The prefix for routes
     'prefix' => 'graphql',

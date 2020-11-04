@@ -4,6 +4,7 @@ namespace App\Http\GraphQL\Types;
 
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Type as GraphQLType;
+
 class HgWeatherForecastType extends GraphQLType
 {
 
@@ -26,28 +27,27 @@ class HgWeatherForecastType extends GraphQLType
             'date' => [
                 'type' => Type::string(),
                 'description' => 'The date'
-            ],                        
+            ],
             'weekday' => [
                 'type' => Type::string(),
                 'description' => 'The weekday'
-            ],                        
+            ],
             'max' => [
                 'type' => Type::int(),
                 'description' => 'The time'
-            ],                        
+            ],
             'min' => [
                 'type' => Type::int(),
                 'description' => 'The condition code'
-            ],                        
+            ],
             'description' => [
                 'type' => Type::string(),
                 'description' => 'The description'
-            ],                        
+            ],
             'condition' => [
                 'type' => Type::string(),
                 'description' => 'The condition'
-            ],                                    
+            ],
         ];
     }
-
 }

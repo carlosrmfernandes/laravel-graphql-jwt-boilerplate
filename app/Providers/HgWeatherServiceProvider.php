@@ -3,6 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use GuzzleHttp\Client as GuzzleClient;
+use App\Components\Weather\Client;
+use App\Components\Weather\Strategies\HgWeatherStrategy;
+
 class HgWeatherServiceProvider extends ServiceProvider
 {
 
@@ -13,9 +17,12 @@ class HgWeatherServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
-        $this->app->singleton('App\Components\Weather\Contracts\HgWeatherInterface', function($app) {
-            return new \App\Components\Weather\Strategies\HgWeatherStrategy($app->make('GuzzleHttp\Client'));
+        $this->app->singleton(Client::class, function () {            
+            $config = config('gatewayapi');                  
+            $client = new GuzzleClient([
+                'base_uri' => $config['base_uri'],
+            ]);
+            return new Client(new HgWeatherStrategy($client));
         });
     }
 
