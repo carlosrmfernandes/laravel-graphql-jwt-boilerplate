@@ -17,8 +17,8 @@ class HgWeatherServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Client::class, function () {            
-            $config = config('gatewayapi');                  
+        $this->app->singleton(Client::class, function () {
+            $config = config('hgWeather');
             $client = new GuzzleClient([
                 'base_uri' => $config['base_uri'],
             ]);
@@ -33,7 +33,5 @@ class HgWeatherServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
     }
-
 }

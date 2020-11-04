@@ -11,7 +11,6 @@ use Madewithlove\Tactician\Traits\DispatchesJobs;
 
 class HgWeatherStrategy implements HgWeatherInterface
 {
-
     use DispatchesJobs;
 
     /**
@@ -29,32 +28,31 @@ class HgWeatherStrategy implements HgWeatherInterface
     }
 
     /**
-     * @param int $toWoeid     
+     * @param int $toWoeid
      * @return Object
      * @throws HgWeatherException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function weatherMessage(
-    int $toWoeid
-    ): Object
-    {
+        int $toWoeid
+    ): Object {
         try {
             $response = $this->client->request('GET', '/weather', [
                 'json' => [
-                    'toWoeid' =>  $toWoeid,                    
+                    'toWoeid' =>  $toWoeid,
                 ]
             ]);
-            $response = json_decode($response->getBody()->getContents());            
+            $response = json_decode($response->getBody()->getContents());
             return $response;
         } catch (ClientException $exception) {
             $response = json_decode($exception->getResponse()->getBody()->getContents());
 
             throw new HgWeatherException(
-            $response->message, $exception->getCode()
+                $response->message,
+                $exception->getCode()
             );
         } catch (Exception $exception) {
             throw $exception;
         }
     }
-
 }
